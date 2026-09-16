@@ -6,7 +6,7 @@ export default function Home() {
           Ju Terra
         </h1>
         <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-          Site em desenvolvimento.
+          Site em desenvolvimento, aguardem!
         </p>
       </main>
     </div>
