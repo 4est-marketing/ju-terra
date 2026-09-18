@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LOGO_DARK_BG } from "@/components/SiteHeader";
 
-// TODO: substituir pelo link real de checkout da Hotmart assim que existir. Todos os botões da
-// página apontam pra este mesmo destino, conforme o briefing de criação.
-const HOTMART_LINK = "#matricula";
+const HOTMART_LINK = "https://pay.hotmart.com/J107661031R?bid=1789737148857";
 
 const AUTHOR_PHOTO =
   "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/c969ed91-d6d9-4c1a-bdf0-4240d0ce4587/authorPhotoUrls-1788966233605.png";
@@ -279,7 +277,7 @@ export default function PermitaSePage() {
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70 grayscale">
             {MEDIA_LOGOS.map((logo) => (
-              <Image key={logo.name} src={logo.url} alt={logo.name} width={90} height={36} className="h-8 w-auto object-contain" />
+              <Image key={logo.name} src={logo.url} alt={logo.name} width={180} height={72} className="h-16 w-auto object-contain" />
             ))}
           </div>
         </div>
