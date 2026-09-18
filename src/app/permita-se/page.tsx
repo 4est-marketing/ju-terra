@@ -222,14 +222,19 @@ export default function PermitaSePage() {
     <>
       {/* HEADER MÍNIMO */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-center px-6 py-7">
-        <Link href="/" className="flex items-center gap-2 opacity-90 hover:opacity-100">
-          <Image src={LOGO_DARK_BG} alt="Pandora 369" width={48} height={48} className="h-12 w-12 object-contain" />
-          <span className="font-display text-[13px] tracking-[0.1em] text-marfim">PANDORA 369</span>
+        <Link href="/" aria-label="Pandora 369" className="opacity-90 hover:opacity-100">
+          <Image
+            src={LOGO_DARK_BG}
+            alt="Pandora 369"
+            width={220}
+            height={220}
+            className="h-40 w-40 object-contain sm:h-56 sm:w-56"
+          />
         </Link>
       </header>
 
       {/* 1. HERO */}
-      <section className="relative overflow-hidden bg-noite px-6 pt-28 pb-20 text-center text-marfim sm:px-10 sm:pb-24">
+      <section className="relative overflow-hidden bg-noite px-6 pt-48 pb-20 text-center text-marfim sm:px-10 sm:pb-24 sm:pt-64">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
