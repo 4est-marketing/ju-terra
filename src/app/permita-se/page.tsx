@@ -226,15 +226,15 @@ export default function PermitaSePage() {
           <Image
             src={LOGO_DARK_BG}
             alt="Pandora 369"
-            width={220}
-            height={220}
-            className="h-40 w-40 object-contain sm:h-56 sm:w-56"
+            width={336}
+            height={336}
+            className="h-[240px] w-[240px] object-contain sm:h-[336px] sm:w-[336px]"
           />
         </Link>
       </header>
 
       {/* 1. HERO */}
-      <section className="relative overflow-hidden bg-noite px-6 pt-48 pb-20 text-center text-marfim sm:px-10 sm:pb-24 sm:pt-64">
+      <section className="relative overflow-hidden bg-noite px-6 pt-[260px] pb-20 text-center text-marfim sm:px-10 sm:pb-24 sm:pt-[360px]">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
