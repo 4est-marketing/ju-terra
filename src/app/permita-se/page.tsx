@@ -203,7 +203,7 @@ function CtaButton({
       ? "bg-dourado text-noite hover:-translate-y-0.5 hover:bg-dourado-claro"
       : "border border-dourado/70 text-dourado hover:bg-dourado/10";
   return (
-    <a href={href} className={`${base} ${styles} ${className}`}>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${styles} ${className}`}>
       {children}
     </a>
   );
@@ -277,7 +277,7 @@ export default function PermitaSePage() {
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70 grayscale">
             {MEDIA_LOGOS.map((logo) => (
-              <Image key={logo.name} src={logo.url} alt={logo.name} width={180} height={72} className="h-16 w-auto object-contain" />
+              <Image key={logo.name} src={logo.url} alt={logo.name} width={360} height={144} className="h-32 w-auto object-contain" />
             ))}
           </div>
         </div>
