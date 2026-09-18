@@ -223,7 +223,7 @@ export default function PermitaSePage() {
       {/* HEADER MÍNIMO */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-center px-6 py-7">
         <Link href="/" className="flex items-center gap-2 opacity-90 hover:opacity-100">
-          <Image src={LOGO_DARK_BG} alt="Pandora 369" width={24} height={24} className="h-6 w-6 object-contain" />
+          <Image src={LOGO_DARK_BG} alt="Pandora 369" width={48} height={48} className="h-12 w-12 object-contain" />
           <span className="font-display text-[13px] tracking-[0.1em] text-marfim">PANDORA 369</span>
         </Link>
       </header>
