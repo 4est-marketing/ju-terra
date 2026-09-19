@@ -585,7 +585,12 @@ export default function PermitaSePage() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <CtaButton href={HOTMART_LINK_MENSAL}>Permita-se — começar por R$ 96,30/mês</CtaButton>
-            <a href="#matricula" className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim">
+            <a
+              href={HOTMART_LINK_TRIMESTRAL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim"
+            >
               Ou garanta 3 meses por R$ 245,00 →
             </a>
             <p className="mt-2 text-[11.5px] text-marfim/45">
