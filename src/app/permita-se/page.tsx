@@ -204,8 +204,13 @@ function CtaButton({
     variant === "primary"
       ? "bg-dourado text-noite hover:-translate-y-0.5 hover:bg-dourado-claro"
       : "border border-dourado/70 text-dourado hover:bg-dourado/10";
+  const isExternal = href.startsWith("http");
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${styles} ${className}`}>
+    <a
+      href={href}
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`${base} ${styles} ${className}`}
+    >
       {children}
     </a>
   );
@@ -260,7 +265,7 @@ export default function PermitaSePage() {
             fundo, sempre foi a mesma coisa.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
-            <CtaButton href={HOTMART_LINK_MENSAL}>Quero me permitir — R$ 96,30/mês</CtaButton>
+            <CtaButton href="#matricula">Quero me permitir — R$ 96,30/mês</CtaButton>
             <a href="#como-funciona" className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim">
               Ver como funciona por dentro ↓
             </a>
@@ -336,7 +341,7 @@ export default function PermitaSePage() {
             ))}
           </div>
           <div className="mt-12">
-            <CtaButton href={HOTMART_LINK_MENSAL}>Começar minha prática →</CtaButton>
+            <CtaButton href="#matricula">Começar minha prática →</CtaButton>
           </div>
         </div>
       </section>
@@ -399,7 +404,7 @@ export default function PermitaSePage() {
             rosto e nas suas mãos.
           </p>
           <div className="mt-10 text-center">
-            <CtaButton href={HOTMART_LINK_MENSAL}>Quero entrar no PANDORA 369 →</CtaButton>
+            <CtaButton href="#matricula">Quero entrar no PANDORA 369 →</CtaButton>
           </div>
         </div>
       </section>
@@ -534,7 +539,7 @@ export default function PermitaSePage() {
         </p>
 
         <div className="mt-10 text-center">
-          <CtaButton href={HOTMART_LINK_MENSAL}>Fazer minha matrícula agora</CtaButton>
+          <CtaButton href="#matricula">Fazer minha matrícula agora</CtaButton>
         </div>
       </section>
 
