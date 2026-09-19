@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { LOGO_DARK_BG } from "@/components/SiteHeader";
 
-const HOTMART_LINK = "https://pay.hotmart.com/J107661031R?bid=1789737148857";
+const HOTMART_LINK_MENSAL = "https://pay.hotmart.com/B107676361N?bid=1789782495190";
+const HOTMART_LINK_TRIMESTRAL =
+  "https://pay.hotmart.com/B107676361N?off=1z9ui7h1&bid=1789782519126";
 
 const AUTHOR_PHOTO =
   "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/c969ed91-d6d9-4c1a-bdf0-4240d0ce4587/authorPhotoUrls-1788966233605.png";
@@ -258,7 +260,7 @@ export default function PermitaSePage() {
             fundo, sempre foi a mesma coisa.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
-            <CtaButton href={HOTMART_LINK}>Quero me permitir — R$ 96,30/mês</CtaButton>
+            <CtaButton href={HOTMART_LINK_MENSAL}>Quero me permitir — R$ 96,30/mês</CtaButton>
             <a href="#como-funciona" className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim">
               Ver como funciona por dentro ↓
             </a>
@@ -334,7 +336,7 @@ export default function PermitaSePage() {
             ))}
           </div>
           <div className="mt-12">
-            <CtaButton href={HOTMART_LINK}>Começar minha prática →</CtaButton>
+            <CtaButton href={HOTMART_LINK_MENSAL}>Começar minha prática →</CtaButton>
           </div>
         </div>
       </section>
@@ -397,7 +399,7 @@ export default function PermitaSePage() {
             rosto e nas suas mãos.
           </p>
           <div className="mt-10 text-center">
-            <CtaButton href={HOTMART_LINK}>Quero entrar no PANDORA 369 →</CtaButton>
+            <CtaButton href={HOTMART_LINK_MENSAL}>Quero entrar no PANDORA 369 →</CtaButton>
           </div>
         </div>
       </section>
@@ -495,7 +497,7 @@ export default function PermitaSePage() {
             <p className="mt-3 text-[13px] leading-[1.6] text-marfim/60">
               Renovação automática. Cancele quando quiser, sem multa e sem justificativa.
             </p>
-            <CtaButton href={HOTMART_LINK} className="mt-6 w-full">
+            <CtaButton href={HOTMART_LINK_MENSAL} className="mt-6 w-full">
               Quero o plano mensal
             </CtaButton>
           </div>
@@ -509,7 +511,7 @@ export default function PermitaSePage() {
               Equivale a R$ 81,67/mês. Você economiza R$ 43,90 — três meses é o tempo em que a
               prática realmente se instala.
             </p>
-            <CtaButton href={HOTMART_LINK} className="mt-6 w-full">
+            <CtaButton href={HOTMART_LINK_TRIMESTRAL} className="mt-6 w-full">
               Quero o plano trimestral
             </CtaButton>
           </div>
@@ -532,7 +534,7 @@ export default function PermitaSePage() {
         </p>
 
         <div className="mt-10 text-center">
-          <CtaButton href={HOTMART_LINK}>Fazer minha matrícula agora</CtaButton>
+          <CtaButton href={HOTMART_LINK_MENSAL}>Fazer minha matrícula agora</CtaButton>
         </div>
       </section>
 
@@ -577,7 +579,7 @@ export default function PermitaSePage() {
             Desperte a sua paz.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
-            <CtaButton href={HOTMART_LINK}>Permita-se — começar por R$ 96,30/mês</CtaButton>
+            <CtaButton href={HOTMART_LINK_MENSAL}>Permita-se — começar por R$ 96,30/mês</CtaButton>
             <a href="#matricula" className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim">
               Ou garanta 3 meses por R$ 245,00 →
             </a>
