@@ -60,7 +60,7 @@ const BENEFICIOS = [
   },
   {
     titulo: "Presença consigo mesma",
-    texto: "Trinta minutos em que você não é mãe, chefe, filha ou esposa. É só você, com você. E isso muda tudo.",
+    texto: "Uma hora em que você não é mãe, chefe, filha ou esposa. É só você, com você. E isso muda tudo.",
   },
 ];
 
@@ -137,7 +137,7 @@ const FAQS = [
   {
     pergunta: "Como é a prática, na verdade?",
     resposta:
-      "Você senta confortável, com as mãos limpas e um óleo ou creme por perto. A Ju conduz do início ao fim: começa por respiração e ativação, passa pelo trabalho de toque nos músculos do rosto — testa, olhos, mandíbula, pescoço —, entra no trabalho de som e ressonância e fecha com integração e silêncio. Dura em torno de trinta minutos.",
+      "Você senta confortável, com as mãos limpas e um óleo ou creme por perto. A Ju conduz do início ao fim: começa por respiração e ativação, passa pelo trabalho de toque nos músculos do rosto — testa, olhos, mandíbula, pescoço —, entra no trabalho de som e ressonância e fecha com integração e silêncio. Dura em torno de uma hora.",
   },
   {
     pergunta: "O que acontece nos encontros ao vivo?",
@@ -260,7 +260,7 @@ export default function PermitaSePage() {
             julgando.
           </p>
           <p className="mx-auto mt-5 max-w-lg text-[14.5px] leading-[1.75] text-marfim/60">
-            Um encontro ao vivo por semana com a Ju Terra. Trinta minutos que cabem na vida real. O
+            Um encontro ao vivo por semana com a Ju Terra. Uma hora que cabe na vida real. O
             cuidado com o seu rosto acontecendo junto com o cuidado com a sua mente — porque, no
             fundo, sempre foi a mesma coisa.
           </p>
