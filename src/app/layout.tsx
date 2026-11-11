@@ -16,9 +16,9 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "PANDORA 369 — Programa de Longevidade | Ju Terra",
+  title: "Yoga Facial com Ju Terra · Permita-se",
   description:
-    "PANDORA 369, o programa de longevidade de Ju Terra: neurociência, fáscia, yoga facial e voz num único método — a ciência da vibração viva.",
+    "Pratique Yoga Facial ao vivo toda semana com Juliana Terra, em encontros de 1 hora. Mais leveza, mais presença e um rosto mais solto, sem procedimentos invasivos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
