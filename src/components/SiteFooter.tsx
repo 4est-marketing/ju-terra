@@ -1,14 +1,12 @@
-import Image from "next/image";
-import { LOGO_DARK_BG } from "@/components/SiteHeader";
-
 export function SiteFooter() {
   return (
-    <footer className="bg-cacau px-6 py-14 text-marfim/70 sm:px-10">
+    <footer className="bg-cacau px-6 pt-14 pb-28 text-marfim/70 sm:px-10 sm:pb-14">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center">
-        <Image src={LOGO_DARK_BG} alt="Pandora 369" width={40} height={40} className="h-10 w-10 object-contain" />
-        <p className="font-display text-lg text-marfim">PANDORA 369</p>
+        <p className="font-display text-xl text-marfim">
+          Yoga Facial <span className="italic text-champagne">com Ju Terra</span> · Permita-se
+        </p>
         <p className="text-[13px] tracking-[0.04em]">
-          Ju Terra · Terra Tigre Produções Artísticas ·{" "}
+          Terra Tigre Produções Artísticas ·{" "}
           <a
             href="https://instagram.com/terraju"
             target="_blank"
@@ -18,8 +16,11 @@ export function SiteFooter() {
             @terraju
           </a>
         </p>
-        <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-marfim/40">
+        <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-marfim/40">
           Presença que transforma o tempo
+        </p>
+        <p className="mt-4 max-w-xl text-[11.5px] leading-relaxed text-marfim/40">
+          Os resultados variam de pessoa para pessoa. O conteúdo não substitui acompanhamento médico.
         </p>
       </div>
     </footer>
