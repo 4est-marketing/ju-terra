@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Permita-se — PANDORA 369 | Ju Terra",
+  title: "Permita-se · Yoga Facial com Ju Terra",
   description:
-    "Uma prática semanal de Yoga Facial ao vivo com Ju Terra. Devolva ordem, sentido e alívio à sua rotina — sem meta, sem culpa. Matricule-se no PANDORA 369.",
+    "Yoga Facial ao vivo toda semana com Ju Terra, em encontros de 1 hora. Mais leveza e presença na sua rotina, sem meta e sem culpa. Entre no Permita-se.",
 };
 
 export default function PermitaSeLayout({ children }: LayoutProps<"/permita-se">) {

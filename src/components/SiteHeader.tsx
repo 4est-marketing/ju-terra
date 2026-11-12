@@ -1,40 +1,31 @@
-import Image from "next/image";
 import Link from "next/link";
 
-const LOGO_LIGHT_BG =
-  "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/254d74fa-47f0-47a2-911a-ba41955b65e0/lightBackgroundLogoUrls-1789675787914.png";
-const LOGO_DARK_BG =
-  "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/254d74fa-47f0-47a2-911a-ba41955b65e0/darkBackgroundLogoUrls-1789675797505.png";
-
-// Cabeçalho do site institucional (Home) — a LP /permita-se tem o próprio cabeçalho, minimalista
-// de propósito (menos distração = menos atrito até o botão de matrícula).
+// Cabeçalho fixo do site (Home). A LP /permita-se tem o próprio cabeçalho, minimalista.
 export function SiteHeader() {
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:px-10">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image src={LOGO_DARK_BG} alt="Pandora 369" width={28} height={28} className="h-7 w-7 object-contain" />
-          <span className="font-display text-[15px] font-medium tracking-[0.08em] text-marfim">
-            PANDORA 369
-          </span>
+    <header className="fixed inset-x-0 top-0 z-30 border-b border-marfim/10 bg-cacau/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10">
+        <Link href="/" className="whitespace-nowrap font-display text-[16px] font-medium tracking-[0.04em] text-marfim sm:text-[18px]">
+          Yoga Facial <span className="italic text-champagne">com Ju Terra</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-[12px] uppercase tracking-[0.18em] text-marfim/80 sm:flex">
-          <a href="#metodo" className="hover:text-marfim">
-            O método
+        <nav className="flex items-center gap-7 text-[12px] uppercase tracking-[0.18em] text-marfim/80">
+          <a href="#permita-se" className="hidden hover:text-marfim lg:inline">
+            O Permita-se
           </a>
-          <a href="#quem-conduz" className="hover:text-marfim">
+          <a href="#quem-conduz" className="hidden hover:text-marfim lg:inline">
             Ju Terra
+          </a>
+          <a href="#duvidas" className="hidden hover:text-marfim lg:inline">
+            Dúvidas
           </a>
           <Link
             href="/permita-se"
-            className="rounded-full border border-champagne/60 px-4 py-2 text-champagne hover:border-champagne hover:bg-champagne/10"
+            className="hidden whitespace-nowrap rounded-full bg-champagne px-5 py-2.5 font-medium text-cacau transition hover:bg-marfim sm:inline-flex"
           >
-            Permita-se
+            Entrar no Permita-se
           </Link>
         </nav>
       </div>
     </header>
   );
 }
-
-export { LOGO_LIGHT_BG, LOGO_DARK_BG };

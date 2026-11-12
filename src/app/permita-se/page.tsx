@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LOGO_DARK_BG } from "@/components/SiteHeader";
 
 const HOTMART_LINK_MENSAL = "https://pay.hotmart.com/B107676361N?bid=1789782495190";
 const HOTMART_LINK_TRIMESTRAL =
@@ -60,28 +59,7 @@ const BENEFICIOS = [
   },
   {
     titulo: "Presença consigo mesma",
-    texto: "Trinta minutos em que você não é mãe, chefe, filha ou esposa. É só você, com você. E isso muda tudo.",
-  },
-];
-
-const TEMPOS = [
-  {
-    numero: "3",
-    nome: "Movimento",
-    texto:
-      "O início. Ativação, toque, respiração. Você desperta a musculatura do rosto e traz sangue, oxigênio e atenção para uma região que passa o dia inteiro esquecida — e travada.",
-  },
-  {
-    numero: "6",
-    nome: "Equilíbrio",
-    texto:
-      "O meio. Aqui entram o som e a ressonância. A vibração da própria voz atravessa os ossos da face e sinaliza segurança ao sistema nervoso. É o momento em que a mente desacelera de verdade.",
-  },
-  {
-    numero: "9",
-    nome: "Conclusão",
-    texto:
-      "O fim. Integração, silêncio, permanência. O corpo assenta o que foi feito. Você sai da prática diferente de como entrou — e leva isso para o resto do dia.",
+    texto: "Uma hora em que você não é mãe, chefe, filha ou esposa. É só você, com você. E isso muda tudo.",
   },
 ];
 
@@ -110,34 +88,16 @@ const PASSOS = [
   },
 ];
 
-const DEPOIMENTOS = [
-  {
-    texto: "Eu entrei achando que era sobre rugas. Não é. É sobre parar. Faz três meses que essa é a única meia hora da semana que é só minha — e ela mudou o resto dos meus dias.",
-    autor: "aluna, 42 anos",
-  },
-  {
-    texto: "Minha mandíbula vivia travada. Eu acordava com dor de cabeça quase todo dia. Na segunda semana de prática, percebi que tinha parado. Não sei explicar tecnicamente, só sei que parou.",
-    autor: "aluna, 51 anos",
-  },
-  {
-    texto: "Já comecei mil coisas e larguei tudo. Essa eu não larguei. Acho que é porque não tem cobrança — se eu falto, a aula tá lá gravada me esperando sem me julgar.",
-    autor: "aluna, 38 anos",
-  },
-  {
-    texto: "O que mais me pegou foi o som. Eu achava estranho no começo. Hoje é a parte que eu mais espero. Sai uma coisa de dentro que eu nem sabia que estava presa.",
-    autor: "aluna, 47 anos",
-  },
-  {
-    texto: "Meu marido perguntou se eu tinha feito alguma coisa no rosto. Eu não fiz nada. Só voltei a descansar.",
-    autor: "aluna, 45 anos",
-  },
-];
+// Depoimentos reais ainda NÃO enviados pela Ju. Enquanto vazio, o espaço aparece só nas prévias
+// da Vercel (caixas tracejadas "pendente") e a seção fica escondida no site oficial.
+const DEPOIMENTOS: { nome: string; cidade: string; texto: string; foto: string }[] = [];
+const MOSTRAR_PENDENCIAS = process.env.VERCEL_ENV !== "production";
 
 const FAQS = [
   {
     pergunta: "Como é a prática, na verdade?",
     resposta:
-      "Você senta confortável, com as mãos limpas e um óleo ou creme por perto. A Ju conduz do início ao fim: começa por respiração e ativação, passa pelo trabalho de toque nos músculos do rosto — testa, olhos, mandíbula, pescoço —, entra no trabalho de som e ressonância e fecha com integração e silêncio. Dura em torno de trinta minutos.",
+      "Você senta confortável, com as mãos limpas e um óleo ou creme por perto. A Ju conduz do início ao fim: começa por respiração e ativação, passa pelo trabalho de toque nos músculos do rosto — testa, olhos, mandíbula, pescoço —, entra no trabalho de som e ressonância e fecha com integração e silêncio. Dura em torno de uma hora.",
   },
   {
     pergunta: "O que acontece nos encontros ao vivo?",
@@ -155,11 +115,6 @@ const FAQS = [
       "O rosto é feito de músculo, fáscia, circulação e nervos. Mobilizar essa região com toque e movimento aumenta a irrigação sanguínea, solta padrões de tensão crônica e devolve tônus a áreas que passam o dia paradas. O que não funciona é fazer uma vez e esperar milagre — o que funciona é repetição gentil ao longo do tempo.",
   },
   {
-    pergunta: "Pra quais idades o programa é recomendado?",
-    resposta:
-      "A partir dos 25 anos, sem limite superior. Foi desenhado pensando em mulheres de 35 anos pra cima, mas os exercícios se adaptam e os benefícios continuam em qualquer idade.",
-  },
-  {
     pergunta: "Nunca fiz yoga na vida. Consigo acompanhar?",
     resposta: "Sim. Não é preciso flexibilidade, condicionamento, tapete ou roupa específica. A prática acontece sentada, com as mãos no próprio rosto. Se você respira, você consegue.",
   },
@@ -175,7 +130,7 @@ const FAQS = [
   {
     pergunta: "Isso substitui tratamento estético ou médico?",
     resposta:
-      "Não. O PANDORA 369 não é procedimento estético nem tratamento médico. É uma prática de autocuidado corporal e de regulação, que convive bem com o que você já faz. Se você tem alguma condição de saúde específica, converse com sua médica ou seu médico antes.",
+      "Não. O Permita-se não é procedimento estético nem tratamento médico. É uma prática de autocuidado corporal e de regulação, que convive bem com o que você já faz. Se você tem alguma condição de saúde específica, converse com sua médica ou seu médico antes.",
   },
   {
     pergunta: "Preciso mostrar meu rosto ou falar nos encontros?",
@@ -229,19 +184,13 @@ export default function PermitaSePage() {
     <>
       {/* HEADER MÍNIMO */}
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-center px-6 py-7">
-        <Link href="/" aria-label="Pandora 369" className="opacity-90 hover:opacity-100">
-          <Image
-            src={LOGO_DARK_BG}
-            alt="Pandora 369"
-            width={336}
-            height={336}
-            className="h-[240px] w-[240px] object-contain sm:h-[336px] sm:w-[336px]"
-          />
+        <Link href="/" className="font-display text-[22px] font-medium tracking-[0.04em] text-marfim opacity-90 hover:opacity-100 sm:text-[26px]">
+          Yoga Facial <span className="italic text-dourado">com Ju Terra</span>
         </Link>
       </header>
 
       {/* 1. HERO */}
-      <section className="relative overflow-hidden bg-noite px-6 pt-[260px] pb-20 text-center text-marfim sm:px-10 sm:pb-24 sm:pt-[360px]">
+      <section className="relative overflow-hidden bg-noite px-6 pt-36 pb-20 text-center text-marfim sm:px-10 sm:pb-24 sm:pt-44">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -250,17 +199,17 @@ export default function PermitaSePage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-2xl">
-          <Eyebrow>PANDORA 369 · Yoga Facial com Ju Terra</Eyebrow>
+          <Eyebrow>Yoga Facial com Ju Terra · Permita-se</Eyebrow>
           <h1 className="font-display text-[34px] font-light leading-[1.15] sm:text-[46px]">
             Você não precisa de mais uma cobrança no seu dia.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-[16px] leading-[1.75] text-marfim/85">
-            Precisa de um lugar pra respirar. O PANDORA 369 é uma prática semanal de Yoga Facial
+            Precisa de um lugar pra respirar. O Permita-se é uma prática semanal de Yoga Facial
             que devolve ordem, sentido e alívio à sua rotina — sem meta, sem culpa, sem espelho te
             julgando.
           </p>
           <p className="mx-auto mt-5 max-w-lg text-[14.5px] leading-[1.75] text-marfim/60">
-            Um encontro ao vivo por semana com a Ju Terra. Trinta minutos que cabem na vida real. O
+            Um encontro ao vivo por semana com a Ju Terra. Uma hora que cabe na vida real. O
             cuidado com o seu rosto acontecendo junto com o cuidado com a sua mente — porque, no
             fundo, sempre foi a mesma coisa.
           </p>
@@ -304,7 +253,7 @@ export default function PermitaSePage() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.8] text-nevoa">
             Você já tentou. Comprou o curso, baixou o app, separou o horário. E aí a vida
-            aconteceu — e sobrou culpa. O PANDORA 369 nasceu justamente pra quebrar esse ciclo.
+            aconteceu — e sobrou culpa. O Permita-se nasceu justamente pra quebrar esse ciclo.
           </p>
         </div>
 
@@ -348,27 +297,7 @@ export default function PermitaSePage() {
 
       {/* 3. COMO FUNCIONA */}
       <section id="como-funciona" className="bg-noite px-6 py-24 text-marfim sm:px-10 sm:py-28">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Método</Eyebrow>
-          <h2 className="font-display text-[30px] font-medium sm:text-[38px]">Por que 3, 6 e 9?</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-[1.8] text-marfim/75">
-            Nikola Tesla dizia que quem entendesse a magnificência do 3, do 6 e do 9 teria a chave
-            do universo. Não por misticismo — por ritmo. O PANDORA 369 é construído sobre esse
-            ciclo: movimento, integração, descanso.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-3">
-          {TEMPOS.map((t) => (
-            <div key={t.numero} className="rounded-2xl border border-dourado/15 bg-ameixa p-7 text-center">
-              <span className="font-display text-5xl text-dourado">{t.numero}</span>
-              <h3 className="font-display mt-3 text-lg uppercase tracking-[0.1em] text-marfim">{t.nome}</h3>
-              <p className="mt-4 text-[13.5px] leading-[1.7] text-marfim/70">{t.texto}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mx-auto mt-24 max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>Antes do &ldquo;como fazer&rdquo;, o &ldquo;por quê&rdquo;</Eyebrow>
           <p className="text-[15px] leading-[1.8] text-marfim/75">
             Seu rosto tem mais de quarenta músculos e é a parte do corpo com maior densidade de
@@ -383,7 +312,7 @@ export default function PermitaSePage() {
 
         <div className="mx-auto mt-24 max-w-3xl">
           <div className="text-center">
-            <Eyebrow>Sua semana no PANDORA 369</Eyebrow>
+            <Eyebrow>Sua semana no Permita-se</Eyebrow>
             <h3 className="font-display text-[26px] font-medium sm:text-[30px]">Como acontece na prática</h3>
           </div>
           <ol className="mt-12 space-y-7">
@@ -400,11 +329,11 @@ export default function PermitaSePage() {
           <p className="mt-10 rounded-2xl border border-dourado/15 bg-ameixa/60 p-6 text-[13.5px] leading-[1.7] text-marfim/70">
             <strong className="text-marfim">O que você precisa: </strong>
             nada de equipamento. Uma toalhinha, um óleo ou creme que você já tenha em casa e um
-            cantinho onde ninguém te interrompa por meia hora. O resto você já tem — está no seu
+            cantinho onde ninguém te interrompa por uma hora. O resto você já tem — está no seu
             rosto e nas suas mãos.
           </p>
           <div className="mt-10 text-center">
-            <CtaButton href="#matricula">Quero entrar no PANDORA 369 →</CtaButton>
+            <CtaButton href="#matricula">Quero entrar no Permita-se →</CtaButton>
           </div>
         </div>
       </section>
@@ -436,7 +365,7 @@ export default function PermitaSePage() {
               </p>
               <p>
                 Tudo isso virou o livro <em>Desperte seu Poder de Cura</em>. E agora vira o
-                PANDORA 369: a reunião do que aprendi em uma vida inteira de estudo, organizada
+                Permita-se: a reunião do que aprendi em uma vida inteira de estudo, organizada
                 num formato que cabe na sua semana.
               </p>
               <p className="font-medium text-queimada">O corpo é caminho, não vitrine.</p>
@@ -449,23 +378,31 @@ export default function PermitaSePage() {
           </div>
         </div>
 
-        <div className="mx-auto mt-24 max-w-5xl text-center">
-          <h3 className="font-display text-[26px] font-medium text-tinta sm:text-[30px]">
-            O que elas contam depois de algumas semanas
-          </h3>
-          <div className="mt-12 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
-            {DEPOIMENTOS.map((d) => (
-              <div key={d.autor} className="rounded-2xl border border-nevoa/10 bg-white/60 p-6">
-                <p className="text-[14px] leading-[1.7] text-tinta/85">“{d.texto}”</p>
-                <p className="mt-4 text-[12px] uppercase tracking-[0.08em] text-nevoa">— {d.autor}</p>
-              </div>
-            ))}
+        {(DEPOIMENTOS.length > 0 || MOSTRAR_PENDENCIAS) && (
+          <div className="mx-auto mt-24 max-w-5xl text-center">
+            <h3 className="font-display text-[26px] font-medium text-tinta sm:text-[30px]">O que dizem as alunas</h3>
+            <div className="mt-12 grid gap-6 text-left sm:grid-cols-3">
+              {DEPOIMENTOS.length > 0
+                ? DEPOIMENTOS.map((d) => (
+                    <div key={d.nome} className="rounded-2xl border border-nevoa/10 bg-white/60 p-6">
+                      <div className="flex items-center gap-3">
+                        <Image src={d.foto} alt={d.nome} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
+                        <p className="text-[13px] font-medium text-tinta">
+                          {d.nome} <span className="font-normal text-nevoa">· {d.cidade}</span>
+                        </p>
+                      </div>
+                      <p className="mt-4 text-[14px] leading-[1.7] text-tinta/85">“{d.texto}”</p>
+                    </div>
+                  ))
+                : [1, 2, 3].map((n) => (
+                    <div key={n} className="rounded-2xl border-2 border-dashed border-nevoa/30 p-6 text-center text-[12.5px] text-nevoa">
+                      <strong className="uppercase tracking-[0.12em]">Pendente · </strong>depoimento {n}: foto, nome,
+                      cidade e texto (a Ju vai enviar).
+                    </div>
+                  ))}
+            </div>
           </div>
-          <p className="mx-auto mt-6 max-w-lg text-[11.5px] italic text-nevoa/60">
-            Depoimentos ilustrativos — substituir por relatos reais e autorizados antes da
-            publicação.
-          </p>
-        </div>
+        )}
       </section>
 
       {/* 5. OFERTA */}
@@ -524,12 +461,15 @@ export default function PermitaSePage() {
 
         <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-queimada/25 bg-queimada/10 p-7 text-center">
           <p className="text-[14.5px] leading-[1.7] text-marfim/85">
-            <strong className="text-marfim">Se você já é aluna da Ju, este espaço é seu de outro jeito.</strong>
+            <strong className="text-marfim">Já é da comunidade?</strong>
             <br />
-            Condição especial: <strong className="text-dourado">R$ 69,30/mês nos três primeiros meses</strong>, com o
-            cupom que você recebeu no seu e-mail ou no grupo. Se não encontrar, chama a gente no
-            WhatsApp que a gente resolve.
+            <strong className="text-dourado">R$ 69,30 por mês nos 3 primeiros meses</strong>, com cupom.
           </p>
+          {MOSTRAR_PENDENCIAS && (
+            <p className="mt-4 rounded-xl border-2 border-dashed border-dourado/40 p-3 text-[12px] text-marfim/60">
+              <strong className="uppercase tracking-[0.12em]">Pendente · </strong>link e cupom da comunidade (a confirmar).
+            </p>
+          )}
         </div>
 
         <p className="mx-auto mt-10 max-w-xl text-center text-[13px] leading-[1.7] text-marfim/50">
@@ -573,7 +513,7 @@ export default function PermitaSePage() {
           </h2>
           <p className="mx-auto mt-6 text-[14.5px] leading-[1.85] text-marfim/70">
             A beleza não nasce da cobrança. Ela floresce no momento exato em que você decide parar,
-            respirar e olhar para dentro. O PANDORA 369 é um convite pra abrir o que estava
+            respirar e olhar para dentro. O Permita-se é um convite pra abrir o que estava
             guardado — não com medo, mas com acolhimento e amor.
           </p>
           <p className="font-display mt-8 text-xl italic leading-relaxed text-dourado">
@@ -598,7 +538,7 @@ export default function PermitaSePage() {
             </p>
           </div>
         </div>
-        <p className="font-display mt-16 text-sm text-marfim/40">PANDORA 369 · com Ju Terra · Terra Tigre</p>
+        <p className="font-display mt-16 text-sm text-marfim/40">Yoga Facial com Ju Terra · Permita-se · Terra Tigre</p>
       </section>
     </>
   );
