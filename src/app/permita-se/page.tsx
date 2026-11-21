@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const HOTMART_LINK_MENSAL = "https://pay.hotmart.com/B107676361N?bid=1789782495190";
+const HOTMART_LINK_MENSAL = "https://pay.hotmart.com/B107666307U?off=s10xfh4d";
 const HOTMART_LINK_TRIMESTRAL =
-  "https://pay.hotmart.com/B107676361N?off=1z9ui7h1&bid=1789782519126";
+  "https://pay.hotmart.com/B107666307U?off=7r0mievg";
 
 const AUTHOR_PHOTO =
   "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/c969ed91-d6d9-4c1a-bdf0-4240d0ce4587/authorPhotoUrls-1788966233605.png";
