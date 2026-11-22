@@ -159,7 +159,7 @@ export default function HomePage() {
             Envelhecer bem começa em tocar o seu próprio rosto
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-[15.5px] leading-[1.8] text-marfim/80 sm:text-[17px]">
-            No Permita-se, você pratica Yoga Facial ao vivo toda semana, em encontros de 1 hora, com a
+            No Permita-se, você pratica Yoga Facial ao vivo toda semana, em encontros de 30 minutos, com a
             Juliana Terra. Você aprende a tocar o seu rosto com calma e ganha mais intimidade com o seu
             corpo, mais leveza e mais presença no dia a dia.
           </p>
@@ -306,7 +306,7 @@ export default function HomePage() {
               </p>
               <ul className="mt-5 space-y-2.5 text-[14px] leading-[1.6] text-marfim/85">
                 <li>✓ Combo Yoga Facial completo incluído (3 programas e mais de 30 exercícios)</li>
-                <li>✓ Encontro ao vivo toda semana, com 1 hora de duração</li>
+                <li>✓ Encontro ao vivo toda semana, com 30 minutos de duração</li>
                 <li>✓ Gravações sempre atualizadas</li>
               </ul>
               <p className="mt-5 text-[13px] text-marfim/60">
