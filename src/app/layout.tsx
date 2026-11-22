@@ -18,7 +18,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "Yoga Facial com Ju Terra · Permita-se",
   description:
-    "Pratique Yoga Facial ao vivo toda semana com Juliana Terra, em encontros de 1 hora. Mais leveza, mais presença e um rosto mais solto, sem procedimentos invasivos.",
+    "Pratique Yoga Facial ao vivo toda semana com Juliana Terra, em encontros de 30 minutos. Mais leveza, mais presença e um rosto mais solto, sem procedimentos invasivos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
