@@ -8,8 +8,7 @@ export const metadata: Metadata = {
     "Yoga Facial com Ju Terra: Permita-se, cursos, grupo gratuito no WhatsApp, livro Desperte seu Poder de Cura e aulas gratuitas no YouTube.",
 };
 
-const FOTO =
-  "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/c969ed91-d6d9-4c1a-bdf0-4240d0ce4587/authorPhotoUrls-1788966233605.png";
+const BANNER_COMBO = "/bio/combo-yoga-facial.webp";
 const COMBO_URL =
   "https://siteterratigre.kpages.online/yoga-facial-com-ju-terra-d789daae-b95d-4409-a598-d42bd27c4906";
 const BIO_URL = "www.juterra.com.br/bio";
@@ -88,7 +87,7 @@ function QrCode({ className = "" }: { className?: string }) {
 
 export default function BioPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-cacau px-5 pt-14 pb-16 text-marfim">
+    <main className="relative min-h-screen overflow-hidden bg-cacau px-5 pt-8 pb-16 text-marfim sm:pt-12">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -99,14 +98,39 @@ export default function BioPage() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-md">
-        {/* PERFIL */}
-        <header className="flex flex-col items-center text-center">
-          <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-champagne/70 shadow-[0_0_0_6px_rgba(216,185,143,.12)]">
-            <Image src={FOTO} alt="Juliana Terra" fill sizes="112px" priority className="object-cover" style={{ objectPosition: "38% 45%" }} />
+        {/* BANNER COMBO YOGA FACIAL */}
+        <a
+          href={COMBO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block overflow-hidden rounded-[28px] border border-champagne/40 bg-marfim shadow-[0_24px_60px_-24px_rgba(0,0,0,.7)] transition hover:-translate-y-0.5"
+        >
+          <Image
+            src={BANNER_COMBO}
+            alt="Combo Yoga Facial com Ju Terra: rejuvenesça com as próprias mãos"
+            width={800}
+            height={800}
+            sizes="(min-width: 480px) 448px, 92vw"
+            priority
+            className="block h-auto w-full"
+          />
+          <div className="flex items-center justify-between gap-4 border-t border-cobre/15 px-5 py-4 text-cacau">
+            <span>
+              <span className="block whitespace-nowrap text-[12.5px] text-nevoa">
+                3 programas · <span className="line-through">R$ 80,70</span>
+              </span>
+              <span className="font-display block text-[26px] leading-tight text-vinho">R$ 58,60</span>
+            </span>
+            <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-vinho px-4 py-3 text-[12px] font-medium uppercase tracking-[0.08em] text-marfim transition group-hover:bg-cacau sm:px-5 sm:text-[12.5px]">
+              Quero o Combo <Seta />
+            </span>
           </div>
-          <h1 className="font-display mt-5 text-[34px] font-light leading-none">Juliana Terra</h1>
-          <p className="mt-2 text-[10.5px] uppercase tracking-[0.16em] text-champagne sm:text-[12px] sm:tracking-[0.22em]">Yoga Facial · Yoga Medicinal · Soul Voice</p>
-          <p className="font-display mt-4 text-lg italic text-marfim/80">Saia do looping. Entre na espiral.</p>
+        </a>
+
+        {/* PERFIL */}
+        <header className="mt-10 flex flex-col items-center text-center">
+          <h1 className="font-display text-[34px] font-light leading-none">Juliana Terra</h1>
+          <p className="mt-3 text-[13px] uppercase tracking-[0.2em] text-champagne">Yoga Facial · Yoga Medicinal</p>
           <div className="mt-5 flex items-center gap-3">
             <a
               href="https://instagram.com/terraju"
@@ -137,7 +161,7 @@ export default function BioPage() {
             style={{ background: "radial-gradient(circle at 50% -10%, rgba(216,185,143,.35), transparent 60%)" }}
           />
           <div className="relative">
-            <span className="inline-block rounded-full bg-champagne px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-cacau">
+            <span className="inline-block rounded-full bg-champagne px-3.5 py-1.5 text-[11.5px] font-medium uppercase tracking-[0.14em] text-cacau">
               Ao vivo toda semana
             </span>
             <h2 className="font-display mt-4 text-[32px] font-medium leading-tight">Permita-se</h2>
@@ -158,7 +182,7 @@ export default function BioPage() {
         {/* LINKS */}
         {SECOES.map((s) => (
           <section key={s.titulo} className="mt-9">
-            <h2 className="mb-3 text-center text-[11px] uppercase tracking-[0.24em] text-champagne/90">{s.titulo}</h2>
+            <h2 className="mb-4 text-center text-[14px] font-medium uppercase tracking-[0.18em] text-champagne sm:text-[15px]">{s.titulo}</h2>
             <ul className="space-y-3">
               {s.itens.map((i) => (
                 <li key={i.href}>
