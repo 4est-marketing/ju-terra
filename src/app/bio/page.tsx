@@ -16,9 +16,10 @@ const BIO_URL = "www.juterra.com.br/bio";
 
 type Item = { titulo: string; detalhe?: string; href: string; patrocinado?: boolean };
 
-const SECOES: { titulo: string; itens: Item[] }[] = [
+const SECOES: { titulo: string; itens: Item[]; banner?: boolean }[] = [
   {
     titulo: "Yoga Facial",
+    banner: true,
     itens: [
       { titulo: "Combo Yoga Facial com Ju Terra", detalhe: "3 programas por R$ 58,60", href: COMBO_URL },
       { titulo: "Todos os cursos de Yoga Facial", detalhe: "Área de membros na Hotmart", href: "https://hotmart.com/pt-br/club/terra-tigre-yoga" },
@@ -43,7 +44,7 @@ const SECOES: { titulo: string; itens: Item[] }[] = [
     titulo: "Aulas de Yoga",
     itens: [
       {
-        titulo: "Aulas gratuitas da Terra Tigre no YouTube",
+        titulo: "Aulas gratuitas de Yoga Medicinal no YouTube",
         href: "https://www.youtube.com/channel/UCQRzXjMat-1GkgFgAveAZ5g?sub_confirmation=1",
       },
     ],
@@ -99,27 +100,8 @@ export default function BioPage() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-md">
-        {/* BANNER PERMITA-SE (BLACK WEEK) */}
-        <a
-          href={PERMITA_SE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Programa Permita-se, oferta Black Week: desbloqueie a oferta de lançamento"
-          className="block overflow-hidden rounded-[28px] border border-champagne/40 shadow-[0_24px_60px_-24px_rgba(0,0,0,.7)] transition hover:-translate-y-0.5"
-        >
-          <Image
-            src={BANNER_PERMITA_SE}
-            alt="Black Week, Programa Permita-se: de R$ 96,30 por R$ 69,30 por mês nos 3 primeiros meses; já é aluna, R$ 59,30 por mês. Prática ao vivo semanal com a Ju, aulas gravadas e Combo Yoga Facial incluso."
-            width={680}
-            height={850}
-            sizes="(min-width: 480px) 448px, 92vw"
-            priority
-            className="block h-auto w-full"
-          />
-        </a>
-
         {/* PERFIL */}
-        <header className="mt-10 flex flex-col items-center text-center">
+        <header className="mt-4 flex flex-col items-center text-center">
           <h1 className="font-display text-[34px] font-light leading-none">Juliana Terra</h1>
           <p className="mt-3 text-[13px] uppercase tracking-[0.2em] text-champagne">Yoga Facial · Yoga Medicinal</p>
           <div className="mt-5 flex items-center gap-3">
@@ -167,6 +149,27 @@ export default function BioPage() {
                   </a>
                 </li>
               ))}
+              {s.banner && (
+                <li className="pt-2">
+                  {/* BANNER PERMITA-SE (BLACK WEEK) */}
+                  <a
+                    href={PERMITA_SE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Programa Permita-se, oferta Black Week: desbloqueie a oferta de lançamento"
+                    className="block overflow-hidden rounded-[28px] border border-champagne/40 shadow-[0_24px_60px_-24px_rgba(0,0,0,.7)] transition hover:-translate-y-0.5"
+                  >
+                    <Image
+                      src={BANNER_PERMITA_SE}
+                      alt="Black Week, Programa Permita-se: de R$ 96,30 por R$ 69,30 por mês nos 3 primeiros meses; já é aluna, R$ 59,30 por mês. Prática ao vivo semanal com a Ju, aulas gravadas e Combo Yoga Facial incluso."
+                      width={680}
+                      height={850}
+                      sizes="(min-width: 480px) 448px, 92vw"
+                      className="block h-auto w-full"
+                    />
+                  </a>
+                </li>
+              )}
             </ul>
           </section>
         ))}
