@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     "Yoga Facial com Ju Terra: Permita-se, cursos, grupo gratuito no WhatsApp, livro Desperte seu Poder de Cura e aulas gratuitas no YouTube.",
 };
 
-const BANNER_COMBO = "/bio/combo-yoga-facial.webp";
+const BANNER_PERMITA_SE = "/bio/permita-se-black-week.webp";
+const PERMITA_SE_URL = "https://wa.4est.com.br/z826e6";
 const COMBO_URL =
   "https://siteterratigre.kpages.online/yoga-facial-com-ju-terra-d789daae-b95d-4409-a598-d42bd27c4906";
 const BIO_URL = "www.juterra.com.br/bio";
@@ -98,33 +99,23 @@ export default function BioPage() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-md">
-        {/* BANNER COMBO YOGA FACIAL */}
+        {/* BANNER PERMITA-SE (BLACK WEEK) */}
         <a
-          href={COMBO_URL}
+          href={PERMITA_SE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group block overflow-hidden rounded-[28px] border border-champagne/40 bg-marfim shadow-[0_24px_60px_-24px_rgba(0,0,0,.7)] transition hover:-translate-y-0.5"
+          aria-label="Programa Permita-se, oferta Black Week: desbloqueie a oferta de lançamento"
+          className="block overflow-hidden rounded-[28px] border border-champagne/40 shadow-[0_24px_60px_-24px_rgba(0,0,0,.7)] transition hover:-translate-y-0.5"
         >
           <Image
-            src={BANNER_COMBO}
-            alt="Combo Yoga Facial com Ju Terra: rejuvenesça com as próprias mãos"
-            width={800}
-            height={800}
+            src={BANNER_PERMITA_SE}
+            alt="Black Week, Programa Permita-se: de R$ 96,30 por R$ 69,30 por mês nos 3 primeiros meses; já é aluna, R$ 59,30 por mês. Prática ao vivo semanal com a Ju, aulas gravadas e Combo Yoga Facial incluso."
+            width={680}
+            height={850}
             sizes="(min-width: 480px) 448px, 92vw"
             priority
             className="block h-auto w-full"
           />
-          <div className="flex items-center justify-between gap-4 border-t border-cobre/15 px-5 py-4 text-cacau">
-            <span>
-              <span className="block whitespace-nowrap text-[12.5px] text-nevoa">
-                3 programas · <span className="line-through">R$ 80,70</span>
-              </span>
-              <span className="font-display block text-[26px] leading-tight text-vinho">R$ 58,60</span>
-            </span>
-            <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-vinho px-4 py-3 text-[12px] font-medium uppercase tracking-[0.08em] text-marfim transition group-hover:bg-cacau sm:px-5 sm:text-[12.5px]">
-              Quero o Combo <Seta />
-            </span>
-          </div>
         </a>
 
         {/* PERFIL */}
@@ -152,32 +143,6 @@ export default function BioPage() {
             </a>
           </div>
         </header>
-
-        {/* BANNER PERMITA-SE */}
-        <section className="relative mt-10 overflow-hidden rounded-[26px] border border-champagne/50 bg-vinho p-7 text-center shadow-[0_20px_50px_-20px_rgba(0,0,0,.6)]">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{ background: "radial-gradient(circle at 50% -10%, rgba(216,185,143,.35), transparent 60%)" }}
-          />
-          <div className="relative">
-            <span className="inline-block rounded-full bg-champagne px-3.5 py-1.5 text-[11.5px] font-medium uppercase tracking-[0.14em] text-cacau">
-              Ao vivo toda semana
-            </span>
-            <h2 className="font-display mt-4 text-[32px] font-medium leading-tight">Permita-se</h2>
-            <p className="mx-auto mt-3 max-w-xs text-[14.5px] leading-[1.7] text-marfim/85">
-              Yoga Facial ao vivo com a Ju, em encontros de 30 minutos. Mais leveza, presença e um rosto mais solto.
-            </p>
-            <p className="font-display mt-4 text-[26px] leading-none text-champagne">R$ 96,30/mês</p>
-            <p className="mt-2 text-[12.5px] text-marfim/70">Combo Yoga Facial completo incluído</p>
-            <Link
-              href="/permita-se"
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-champagne py-3.5 text-[13px] font-medium uppercase tracking-[0.1em] text-cacau transition hover:bg-marfim"
-            >
-              Quero entrar no Permita-se <Seta />
-            </Link>
-          </div>
-        </section>
 
         {/* LINKS */}
         {SECOES.map((s) => (
