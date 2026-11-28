@@ -2,8 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HOTMART_LINK_MENSAL = "https://pay.hotmart.com/B107666307U?off=s10xfh4d";
-const HOTMART_LINK_TRIMESTRAL =
+const HOTMART_LINK_TRIMESTRAL_NORMAL =
   "https://pay.hotmart.com/B107666307U?off=7r0mievg";
+
+// Black Friday: trimestral de R$ 245,00 por R$ 177,90 até 04/12/2026 (23h59, horário de Brasília).
+// Depois dessa data a página volta sozinha ao preço e ao link normais (revalida a cada 10 min).
+const BLACK_FRIDAY_FIM = new Date("2026-12-05T00:00:00-03:00");
+const HOTMART_LINK_TRIMESTRAL_BF = "https://pay.hotmart.com/B107666307U?off=twbtrdl8";
+export const revalidate = 600;
 
 const AUTHOR_PHOTO =
   "https://kulmdjdjpkcbghfoniuz.supabase.co/storage/v1/object/public/brand-assets/produtos/c969ed91-d6d9-4c1a-bdf0-4240d0ce4587/authorPhotoUrls-1788966233605.png";
@@ -180,6 +186,9 @@ function Eyebrow({ children, dark }: { children: React.ReactNode; dark?: boolean
 }
 
 export default function PermitaSePage() {
+  const blackFriday = Date.now() < BLACK_FRIDAY_FIM.getTime();
+  const HOTMART_LINK_TRIMESTRAL = blackFriday ? HOTMART_LINK_TRIMESTRAL_BF : HOTMART_LINK_TRIMESTRAL_NORMAL;
+  const precoTrimestral = blackFriday ? "R$ 177,90" : "R$ 245,00";
   return (
     <>
       {/* HEADER MÍNIMO */}
@@ -432,7 +441,16 @@ export default function PermitaSePage() {
           </ul>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
+        {blackFriday && (
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dourado/60 bg-black px-6 py-4 text-center">
+            <p className="font-display text-2xl tracking-[0.08em] text-dourado sm:text-3xl">BLACK FRIDAY</p>
+            <p className="mt-1 text-[13px] uppercase tracking-[0.15em] text-marfim/80">
+              Plano trimestral com desconto · preço válido até 04/12
+            </p>
+          </div>
+        )}
+
+        <div className={`mx-auto ${blackFriday ? "mt-8" : "mt-10"} grid max-w-3xl gap-6 sm:grid-cols-2`}>
           <div className="rounded-2xl border border-dourado/20 bg-ameixa p-7 text-center">
             <p className="text-[12px] uppercase tracking-[0.15em] text-marfim/60">Mensal</p>
             <p className="font-display mt-2 text-3xl text-marfim">R$ 96,30/mês</p>
@@ -445,14 +463,29 @@ export default function PermitaSePage() {
           </div>
           <div className="relative rounded-2xl border-2 border-dourado bg-ameixa p-7 text-center">
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-dourado px-3 py-1 text-[10px] font-medium uppercase tracking-[0.1em] text-noite">
-              Mais escolhido
+              {blackFriday ? "Black Friday" : "Mais escolhido"}
             </span>
             <p className="text-[12px] uppercase tracking-[0.15em] text-marfim/60">Trimestral</p>
-            <p className="font-display mt-2 text-3xl text-marfim">R$ 245,00</p>
-            <p className="mt-3 text-[13px] leading-[1.6] text-marfim/60">
-              Equivale a R$ 81,67/mês. Você economiza R$ 43,90 — três meses é o tempo em que a
-              prática realmente se instala.
-            </p>
+            {blackFriday ? (
+              <>
+                <p className="mt-2 text-[14px] text-marfim/55">
+                  de <span className="line-through decoration-queimada decoration-2">R$ 245,00</span> por
+                </p>
+                <p className="font-display text-4xl text-dourado">R$ 177,90</p>
+                <p className="mt-3 text-[13px] leading-[1.6] text-marfim/60">
+                  Equivale a R$ 59,30/mês. Você economiza R$ 111,00 — três meses é o tempo em que a
+                  prática realmente se instala.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-display mt-2 text-3xl text-marfim">R$ 245,00</p>
+                <p className="mt-3 text-[13px] leading-[1.6] text-marfim/60">
+                  Equivale a R$ 81,67/mês. Você economiza R$ 43,90 — três meses é o tempo em que a
+                  prática realmente se instala.
+                </p>
+              </>
+            )}
             <CtaButton href={HOTMART_LINK_TRIMESTRAL} className="mt-6 w-full">
               Quero o plano trimestral
             </CtaButton>
@@ -531,7 +564,7 @@ export default function PermitaSePage() {
               rel="noopener noreferrer"
               className="text-[12.5px] text-marfim/60 underline decoration-dourado/40 underline-offset-4 hover:text-marfim"
             >
-              Ou garanta 3 meses por R$ 245,00 →
+              Ou garanta 3 meses por {precoTrimestral}{blackFriday && " (Black Friday, até 04/12)"} →
             </a>
             <p className="mt-2 text-[11.5px] text-marfim/45">
               Acesso imediato · Encontro ao vivo toda semana · Cancele quando quiser
