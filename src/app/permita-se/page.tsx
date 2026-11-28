@@ -441,16 +441,7 @@ export default function PermitaSePage() {
           </ul>
         </div>
 
-        {blackFriday && (
-          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dourado/60 bg-black px-6 py-4 text-center">
-            <p className="font-display text-2xl tracking-[0.08em] text-dourado sm:text-3xl">BLACK FRIDAY</p>
-            <p className="mt-1 text-[13px] uppercase tracking-[0.15em] text-marfim/80">
-              Plano trimestral com desconto · preço válido até 04/12
-            </p>
-          </div>
-        )}
-
-        <div className={`mx-auto ${blackFriday ? "mt-8" : "mt-10"} grid max-w-3xl gap-6 sm:grid-cols-2`}>
+        <div className="mx-auto mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
           <div className="rounded-2xl border border-dourado/20 bg-ameixa p-7 text-center">
             <p className="text-[12px] uppercase tracking-[0.15em] text-marfim/60">Mensal</p>
             <p className="font-display mt-2 text-3xl text-marfim">R$ 96,30/mês</p>
@@ -493,12 +484,20 @@ export default function PermitaSePage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-queimada/25 bg-queimada/10 p-7 text-center">
-          <p className="text-[14.5px] leading-[1.7] text-marfim/85">
-            <strong className="text-marfim">Já é da comunidade?</strong>
-            <br />
-            <strong className="text-dourado">R$ 69,30 por mês nos 3 primeiros meses</strong>, com cupom.
-          </p>
-          {MOSTRAR_PENDENCIAS && (
+          {blackFriday ? (
+            <p className="text-[14.5px] leading-[1.7] text-marfim/85">
+              <strong className="text-marfim">Black Friday no plano trimestral</strong>
+              <br />
+              <strong className="text-dourado">De R$ 245,00 por R$ 177,90</strong> — preço válido até 04/12.
+            </p>
+          ) : (
+            <p className="text-[14.5px] leading-[1.7] text-marfim/85">
+              <strong className="text-marfim">Já é da comunidade?</strong>
+              <br />
+              <strong className="text-dourado">R$ 69,30 por mês nos 3 primeiros meses</strong>, com cupom.
+            </p>
+          )}
+          {MOSTRAR_PENDENCIAS && !blackFriday && (
             <p className="mt-4 rounded-xl border-2 border-dashed border-dourado/40 p-3 text-[12px] text-marfim/60">
               <strong className="uppercase tracking-[0.12em]">Pendente · </strong>link e cupom da comunidade (a confirmar).
             </p>
