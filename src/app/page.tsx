@@ -16,6 +16,10 @@ const LIVRO_URL = "";
 const DEPOIMENTOS: { nome: string; cidade: string; texto: string; foto: string }[] = [];
 const MOSTRAR_PENDENCIAS = process.env.VERCEL_ENV !== "production";
 
+// Black Friday do plano trimestral do Permita-se: até 04/12/2026 23h59 (Brasília).
+const BLACK_FRIDAY_FIM = new Date("2026-12-05T00:00:00-03:00");
+export const revalidate = 600;
+
 function Pendente({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
   if (!MOSTRAR_PENDENCIAS) return null;
   return (
@@ -139,6 +143,7 @@ const FAQS = [
 ];
 
 export default function HomePage() {
+  const blackFriday = Date.now() < BLACK_FRIDAY_FIM.getTime();
   return (
     <>
       <SiteHeader />
@@ -313,8 +318,13 @@ export default function HomePage() {
                 O Combo, que separado custa R$ 58,60, já vem dentro da assinatura.
               </p>
               <p className="font-display mt-6 text-2xl text-champagne">
-                R$ 96,30 por mês, ou 3 meses por R$ 245,00.
+                R$ 96,30 por mês, ou 3 meses por {blackFriday ? "R$ 177,90" : "R$ 245,00"}.
               </p>
+              {blackFriday && (
+                <p className="mt-1 text-[12.5px] uppercase tracking-[0.12em] text-dourado">
+                  Black Friday: de R$ 245,00 por R$ 177,90 no trimestral · até 04/12
+                </p>
+              )}
               <p className="mt-3 text-[13.5px] leading-[1.6] text-marfim/75">
                 Já é da comunidade? R$ 69,30 por mês nos 3 primeiros meses, com cupom.
               </p>
